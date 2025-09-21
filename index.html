@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karno Haritası - Boolean Fonksiyon Sadeleştirici</title>
+    <meta name="description" content="Interaktif Karno Haritası web uygulaması ile Boolean fonksiyonlarını görselleştirin ve sadeleştirin.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1><i class="fas fa-calculator"></i> Karno Haritası</h1>
+            <p>Boolean Fonksiyonları Görselleştirme ve Sadeleştirme Aracı</p>
+        </header>
+
+        <!-- Controls -->
+        <div class="controls">
+            <div class="variable-selector">
+                <label for="variableCount">Değişken Sayısı:</label>
+                <select id="variableCount">
+                    <option value="2">2 Değişken (A, B)</option>
+                    <option value="3">3 Değişken (A, B, C)</option>
+                    <option value="4" selected>4 Değişken (A, B, C, D)</option>
+                </select>
+            </div>
+            
+            <div class="input-methods">
+                <button class="method-btn active" data-method="truthTable">
+                    <i class="fas fa-table"></i> Doğruluk Tablosu
+                </button>
+                <button class="method-btn" data-method="minterm">
+                    <i class="fas fa-list"></i> Minterm Girişi
+                </button>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="action-btn" id="clearBtn">
+                    <i class="fas fa-eraser"></i> Temizle
+                </button>
+                <button class="action-btn" id="randomBtn">
+                    <i class="fas fa-random"></i> Rastgele
+                </button>
+            </div>
+        </div>
+
+        <!-- Workspace -->
+        <div class="workspace">
+            <!-- Input Panel -->
+            <div class="input-panel">
+                <h3><i class="fas fa-edit"></i> Giriş Yöntemleri</h3>
+                
+                <!-- Truth Table Method -->
+                <div class="input-method active" id="truthTableMethod">
+                    <p>Doğruluk tablosunda F sütunundaki değerleri tıklayarak değiştirin:</p>
+                    <div id="truthTableContainer"></div>
+                </div>
+                
+                <!-- Minterm Method -->
+                <div class="input-method" id="mintermMethod">
+                    <div class="minterm-input">
+                        <label for="mintermInput">Minterm'leri girin (virgülle ayırın):</label>
+                        <input type="text" id="mintermInput" placeholder="Örnek: 3,4,5,7,11,12,13,15">
+                        <button id="applyMinterms">Uygula</button>
+                        <p><small>Örnekler: 0,1,2,4 veya 3,5,6,7,9,10,11,13,14,15</small></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Karno Map Panel -->
+            <div class="karno-panel">
+                <h3><i class="fas fa-th"></i> Karno Haritası</h3>
+                <div id="karnoMapContainer"></div>
+                <div class="map-controls">
+                    <button class="primary-btn" id="findGroupsBtn">
+                        <i class="fas fa-search"></i> Grupları Bul
+                    </button>
+                    <button class="primary-btn" id="showSolutionBtn">
+                        <i class="fas fa-lightbulb"></i> Çözümü Göster
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results -->
+        <div class="results">
+            <!-- Groups Panel -->
+            <div class="groups-panel">
+                <h3><i class="fas fa-layer-group"></i> Bulunan Gruplar</h3>
+                <div id="groupsList">
+                    <p>Grup bulmak için "Grupları Bul" butonuna tıklayın.</p>
+                </div>
+            </div>
+
+            <!-- Solution Panel -->
+            <div class="solution-panel">
+                <h3><i class="fas fa-formula"></i> Sadeleştirilmiş Fonksiyon</h3>
+                <div id="solutionDisplay">
+                    <p>Çözümü görmek için "Çözümü Göster" butonuna tıklayın.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script_fixed.js"></script>
+</body>
+</html>
