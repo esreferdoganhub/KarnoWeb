@@ -1,0 +1,7 @@
+[providers.staticfile]
+packagedFiles = [
+    "index.html",
+    "styles.css",
+    "script_fixed.js",
+    "README.md"
+]
